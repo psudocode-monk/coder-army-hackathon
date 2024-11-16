@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.logo {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: lighter;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+.nav-links {
+    font-family: "Montserrat", sans-serif;
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: lighter;
+    transition: color 1s ease;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    transition: all 1s;
+}
+
+.nav-links a:hover {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.hero {
+    background-image: url(./images/hero-image.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Homemade Apple", cursive;
+    font-size: 1.5rem;
+    animation-name: blink;
+    animation-timing-function: linear;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    from {
+        color: white;
+    }
+
+    to {
+        color: #ffff00;
+    }
+}
+
+/* .overlay h1 {
+    transition: all 1s;
+} */
+
+/* .overlay h1:hover {
+    color: #ffff00;
+} */
+
+.scroll-down {
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Media Queries for up bound*/
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .navbar:hover .nav-links {
+        display: flex;
+    }
+    .overlay h1 {
+        text-align: center;
+    }
+}
+
+.skills-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./images/skill-bag\ \(2\).jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.skills-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.skills-content h2 {
+    padding: 40px;
+    font-family: "Homemade Apple", cursive;
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+    transition: all 0.8s;
+}
+
+.skills-content h2:hover {
+    color: #ffff00;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+}
+
+.skill {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    border-radius: 5px;
+    transition: background 1s ease, transform 1s ease;
+    font-size: 1.7rem;
+    font-family: "Roboto Mono", monospace;
+    transition: all 1s;
+}
+
+.skill:hover {
+    background: #ffff00;
+    transform: scale(1.05);
+    color: black;
+}
+
+.image-card {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.image-card img {
+    width: 100%;
+    /* height: 40vh; */
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: all 1s ease;
+}
+
+.image-card img:hover {
+    filter: brightness(1.2);
+    /* box-shadow: 0 0 50px 5px #ffff00; */
+    transform: scale(1.2);
+}
+
+/* Media Queries for skill bound*/
+@media (max-width: 768px) {
+    .skills-section {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .skills-content {
+        text-align: center;
+    }
+
+    .image-card {
+        margin-top: 20px;
+    }
+}
+
+.projects-section {
+    position: relative;
+    height: auto;
+    overflow: visible;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(3px);
+}
+
+.projects-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.projects-content h2 {
+    font-family: "Homemade Apple", cursive;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    padding: 40px;
+    transition: all 1s;
+}
+
+.projects-content h2:hover {
+    color: #ffcc00;
+}
+
+.projects-content {
+    font-family: "Roboto Mono", monospace;
+    line-height: 2rem;
+}
+
+.projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    transition: transform 1s ease, box-shadow 1s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 35%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    margin: 10px 0;
+
+}
+
+.project-card p {
+    margin-bottom: 15px;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: #ffcc00;
+    border: 1px solid #ffcc00;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 1s ease, color 1s ease;
+}
+
+.project-card a:hover {
+    background: #ffcc00;
+    color: black;
+}
+
+.project-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 8px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries for skills */
+@media (max-width: 768px) {
+    .projects-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .projects-list {
+        overflow: visible;
+    }
+}
+
+.contact-section {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    background-image: url(./images/contact-bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.form-container h2 {
+    font-size: 2.3rem;
+    font-family: "Homemade Apple", cursive;
+    padding-bottom: 30px;
+    transition: all 1s;
+}
+
+.form-container:hover {
+    transform: scale(1.05);
+    color: #ffff00;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: background 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    background: rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+button {
+    background: #ffcc00;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #e6b800;
+}
+
+.footer {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: #ffcc00;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
